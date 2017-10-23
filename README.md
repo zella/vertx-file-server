@@ -22,7 +22,7 @@ users = [
 permissions = [
   {"id": "p1", "file": "someDir", "perm": "rw"},
   {"id": "p2", "file": "someDir/sub/dir", "perm": "r","until": "2018-04-08 12:30"},
-  {"id": "pPub", "file": "someDir/somePubDir", "perm": "r", "until": "2019-04-08 12:30"},
+  {"id": "pPub", "file": "someDir/somePubDir/someFile.jpg", "perm": "r", "until": "2019-04-08 12:30"},
 ]
 
 usersHasPermissions = [
