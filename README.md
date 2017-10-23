@@ -1,5 +1,5 @@
 # vertx-file-server
-Simple permission-to-folder based file server
+Simple "user-has-permission-to-folder" based file server
 
 **Feautures:**
 * File uploads
