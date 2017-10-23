@@ -44,7 +44,7 @@ java -Dadmin="adminUser" -DconfigFile="/path/to/my.conf" -Dport=9999 -DrootDir="
 * `-DreloadInterval` - reload config interval(secs) if changed externally
 
 **Urls:**
-* `/login` - login form
+* `/login` - login
 * `/` - shows first permitted dir(if you have more than one) or login
 * `/update` - update config
 * `/logout` - logout
