@@ -36,9 +36,9 @@ usersHasPermissions = [
 ```
 java -Dadmin="adminUser" -DconfigFile="/path/to/my.conf" -Dport=9999 -DrootDir="/files/etc" -DreloadInterval=10 -jar vertx-file-server.jar
 ```
-***Params:***
-* Dadmin - who can edit config
-* DconfigFile - path to conf
-* Dport - http server port
-* DrootDir - dir where all permitted dirs exist
-* DreloadInterval - reload config interval(secs) if changed externally
+**Params:**
+* `-Dadmin` - who can edit config
+* -DconfigFile - path to conf
+* -Dport - http server port
+* -DrootDir - dir where all permitted dirs exist
+* -DreloadInterval - reload config interval(secs) if changed externally
