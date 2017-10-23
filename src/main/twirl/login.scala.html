@@ -1,0 +1,36 @@
+@import io.vertx.ext.web.RoutingContext
+
+@(ctx:RoutingContext)
+
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<h2>Login</h2><br>
+
+@import java.lang.String
+@if(ctx.get[String]("msg")!=null){
+<div id="msg">
+    @ctx.remove[String]("msg")
+</div>
+}
+
+<form action="/authenticate" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>
+</body>
+</html>
