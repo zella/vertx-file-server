@@ -42,3 +42,9 @@ java -Dadmin="adminUser" -DconfigFile="/path/to/my.conf" -Dport=9999 -DrootDir="
 * `-Dport` - http server port
 * `-DrootDir` - dir where all permitted dirs exist
 * `-DreloadInterval` - reload config interval(secs) if changed externally
+
+**Urls:**
+* `/login` - login form
+* `/` - shows first permitted dir(if you have more than one) or login
+* `/update` - update config
+* `/logout` - logout
