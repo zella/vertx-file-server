@@ -7,7 +7,7 @@ Simple permission-to-folder based file server
 * Users and corresponding permissions
 * Permissions ("r" or "w" or "rw") for specific folder or file.
 * Time based permissions ("User Bob can read "/specific/folder/*" until 2017 12 30 14:30)
-* Public permission, without autorisation
+* Public permission, without authentification
 * Editing permission config from web. Require admin user
 
 **Example config:**
