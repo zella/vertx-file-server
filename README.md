@@ -34,8 +34,10 @@ usersHasPermissions = [
 **How to run:**
 
 ```
-java -Dadmin="adminUser" -DconfigFile="/path/to/my.conf" -Dport=9999 -DrootDir="/web/etc" -DreloadInterval=10 -jar vertx-file-server.jar
+java -Dadmin="adminUser" -DconfigFile="/path/to/my.conf" -Dport=9999 -DrootDir="/web/etc" -DtmpDir="/upload/here" -DreloadInterval=10 -jar vertx-file-server.jar
 ```
+`-DreloadInterval` - optional, default - disabled(-1)
+
 **Params:**
 * `-Dadmin` - who can edit config
 * `-DconfigFile` - path to conf
