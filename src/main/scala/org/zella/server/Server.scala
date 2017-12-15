@@ -42,14 +42,13 @@ class Server(params: Params,
     val router = Router.router(vertx)
 
     router.route.handler(CookieHandler.create)
-    router.route.handler(BodyHandler.create.setDeleteUploadedFilesOnEnd(true))
+    router.route.handler(BodyHandler.create
+      .setDeleteUploadedFilesOnEnd(true)
+      .setUploadsDirectory(params.tmpFolder))
     //TODO session timeout configurable, default - 30min
     router.route.handler(SessionHandler.create(LocalSessionStore.create(vertx)))
     router.route.handler(UserSessionHandler.create(authProvider))
-
-    //FIXME there is no upload button if no write permission
-    //FIXME upload file permission should checks before upload !UPD! implemented, but not tested
-
+    
     //TODO disable netty and my debug logs
 
     //TODO LATE, when twirl will be integrated, refresh page after upload with flash scope

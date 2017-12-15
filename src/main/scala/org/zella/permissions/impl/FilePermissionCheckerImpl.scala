@@ -16,7 +16,8 @@ class FilePermissionCheckerImpl(conf: IPermConfig) extends IFilePermissionChecke
 
   override def isPermitted(@Nullable user: User, file: Path, perm: String): Boolean = {
 
-    val wildcardPerms = conf.usersHasPerms.toBlocking.value.apply("*").map(conf.permissions.toBlocking.value())
+    val wildcardPerms = conf.usersHasPerms.toBlocking.value.getOrElse("*", Set())
+      .map(conf.permissions.toBlocking.value())
 
     if (user == null || !conf.usersHasPerms.toBlocking.value.contains(user.asInstanceOf[SimpleUser].username)) {
       wildcardPerms

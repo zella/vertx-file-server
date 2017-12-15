@@ -19,19 +19,20 @@ object Runner {
       val confFile = System.getProperty("configFile")
       val port = System.getProperty("port").toInt
       val rootDir = System.getProperty("rootDir")
-      val reloadInterval = System.getProperty("reloadInterval").toInt
+      val reloadInterval = System.getProperty("reloadInterval", "-1").toInt
       val admin = System.getProperty("admin")
+      val tmpDir = System.getProperty("tmpDir")
 
       Objects.requireNonNull(confFile)
       Objects.requireNonNull(rootDir)
       Objects.requireNonNull(admin)
 
-      Params(confFile, port, rootDir, reloadInterval, admin)
+      Params(confFile, port, rootDir, reloadInterval, admin, tmpDir)
 
     } catch {
       case e: Throwable => throw new IllegalArgumentException("You must specify system paramters." +
         " Example: java -DconfigFile=\"/path/to/config.conf\"" +
-        " -Dport=9999 -DrootDir=\"/path/to/dir\" -DreloadInterval=10 -jar server.jar", e)
+        " -Dport=9999 -DrootDir=\"/path/to/dir\" -DreloadInterval=10 tmpDir=/path/to/dir -jar server.jar", e)
     }
   }
 
@@ -41,7 +42,7 @@ object Runner {
 
     val vertx = Vertx.vertx()
 
-    val config = new ReloadablePermConfig(props.rootDir, props.config, props.reloadInterval )
+    val config = new ReloadablePermConfig(props.rootDir, props.config, props.reloadInterval)
 
     val authProvider = new SimpleAuthProvider(vertx, config.users)
 
@@ -51,6 +52,11 @@ object Runner {
       config, authProvider, permissionChecker, vertx).start()
   }
 
-  case class Params(config: String, port: Int, rootDir: String, reloadInterval: Int, admin: String)
+  case class Params(config: String,
+                    port: Int,
+                    rootDir: String,
+                    reloadInterval: Int,
+                    admin: String,
+                    tmpFolder: String)
 
 }
