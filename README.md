@@ -1,3 +1,5 @@
+# @Deprecated
+
 # vertx-file-server
 Simple "user-has-permission-to-folder" based file server
 
